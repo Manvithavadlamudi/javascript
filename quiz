@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Interactive Quiz</title>
+</head>
+<body>
+ <h1>Interactive Quiz</h1>
+ <p id="question"></p>
+ <input type="text" id="answer" placeholder="Enter your answer">
+ <button id="submit">Submit Answer</button>
+ <p id="feedback"></p>
+ <script>
+ const questionEl = document.getElementById("question");
+ const answerEl = document.getElementById("answer");
+ const submitBtn = document.getElementById("submit");
+ const feedbackEl = document.getElementById("feedback");
+ const question = "What is the capital of France?";
+ const correctAnswer = "Paris";
+ questionEl.textContent = question;
+ submitBtn.addEventListener("click", function () {
+ const userAnswer = answerEl.value.trim();
+ if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+ feedbackEl.textContent = "Correct!";
+ } else {
+ feedbackEl.textContent = "Incorrect. The correct answer is " + correctAnswer;
+ }
+ answerEl.value = ""; // Clear the input field after submission
+ });
+ </script>
+</body>
+</html>
